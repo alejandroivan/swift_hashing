@@ -69,7 +69,7 @@ public class Hash {
     /// Transforms the input hashed bytes to a String representation.
     ///
     /// - Parameter bytes: A byte array representing hashed data.
-    /// - Returns: The byte array translated to a String.
+    /// - Returns: The byte array translated into a String.
     public func string(from bytes: [UInt8]) -> String {
         return bytes.map { String(format: "%02hhx", $0) }.joined()
     }
