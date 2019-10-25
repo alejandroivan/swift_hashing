@@ -4,7 +4,7 @@ public extension String {
     var sha256: String { return hash(for: .sha256) }
     var sha512: String { return hash(for: .sha512) }
 
-    private func hash(for variant: Hash.HashType) {
+    private func hash(for variant: Hash.HashType) -> String {
         // Force-unwrapping should never fail for valid UTF-8 strings
         let data = self.data(using: .utf8)!
         let hash = Hash(variant: variant)
