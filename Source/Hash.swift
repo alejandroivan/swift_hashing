@@ -4,10 +4,14 @@ import Foundation
 public class Hash {
     /// An enumeration specifying the currently supported hashing algorithms.
     ///
+    /// - sha1: Represents a SHA1 hashing algorithm.
     /// - sha256: Represents a SHA256 hashing algorithm.
+    /// - sha384: Represents a SHA483 hashing algorithm.
     /// - sha512: Represents a SHA512 hashing algorithm.
     public enum HashType {
+        case sha1
         case sha256
+        case sha384
         case sha512
     }
 
@@ -22,8 +26,12 @@ public class Hash {
     /// The length of the digest for the particular variant chosen, taken from CommonCrypto.
     public var digestLength: Int32 {
         switch variant {
+        case .sha1:
+            return CC_SHA1_DIGEST_LENGTH
         case .sha256:
             return CC_SHA256_DIGEST_LENGTH
+        case .sha384:
+            return CC_SHA384_DIGEST_LENGTH
         case .sha512:
             return CC_SHA512_DIGEST_LENGTH
         }
@@ -32,8 +40,12 @@ public class Hash {
     /// Chooses a hashing function from CommonCrypto, based on the variant specified in the "variant" instance variable.
     private var hashFunction: HashFunction {
         switch variant {
+        case .sha1:
+            return CC_SHA1
         case .sha256:
             return CC_SHA256
+        case .sha384:
+            return CC_SHA384
         case .sha512:
             return CC_SHA512
         }
