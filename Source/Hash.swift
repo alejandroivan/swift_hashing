@@ -15,7 +15,7 @@ public class Hash {
         case sha512
     }
 
-    /// A typealias representing the closure types for the hashing funciton.
+    /// A typealias representing the closure types for the hashing function.
     private typealias HashFunction = (UnsafeRawPointer?, CC_LONG, UnsafeMutablePointer<UInt8>?) -> UnsafeMutablePointer<UInt8>?
 
     // MARK: - Properties
